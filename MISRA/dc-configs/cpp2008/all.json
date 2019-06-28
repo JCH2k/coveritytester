@@ -1,0 +1,84 @@
+{
+    "type" : "Coverity analysis configuration",
+    "format_version" : 4,
+    "language" : "C/C++",
+    "directives" : [
+       {
+          "dc_checker_name" : "DC.CUSTOM_MISRA",
+          "antecedent_checker" : "SECURE_CODING",
+          "category" : "Security best practices violations",
+          "impact" : "low",
+          "type" : "Custom type",
+          "long_description" : "Custom long description",
+          "local_effect" : "Custom local effect",
+          "kind" : both,
+          "language" : "cpp"
+       },
+       {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strcpy" },
+                  "txt_defect_message" : "The unbounded functions strcpy of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strcmp" },
+                  "txt_defect_message" : "The unbounded functions strcmp of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strcat" },
+                  "txt_defect_message" : "The unbounded functions strcat of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strchr" },
+                  "txt_defect_message" : "The unbounded functions strchr of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strspn" },
+                  "txt_defect_message" : "The unbounded functions strspn of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strcspn" },
+                  "txt_defect_message" : "The unbounded functions strcspn of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strpbrk" },
+                  "txt_defect_message" : "The unbounded functions strpbrk of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strrchr" },
+                  "txt_defect_message" : "The unbounded functions strrchr of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strstr" },
+                  "txt_defect_message" : "The unbounded functions strstr of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strtok" },
+                  "txt_defect_message" : "The unbounded functions strtok of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      },
+          {
+          "method_set_for_dc_checker" : "DC.CUSTOM_MISRA",
+          "methods" : { "named" : "strlen" },
+                  "txt_defect_message" : "The unbounded functions strlen of library <cstring> shall not be used.!",
+                  "txt_remediation_advice" : "Use bounded function instead."
+      }
+    ]
+}

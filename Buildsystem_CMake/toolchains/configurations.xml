@@ -1,0 +1,37 @@
+<cmake_configurations>
+	<config BuildImpl="STM32F091" BuildArch="CORTEX_M0">
+		<BuildCompiler name="CodeSourcery"/>
+		<BuildCompiler name="GNUARM"/>
+	</config>
+	<config BuildImpl="STM32F103" BuildArch="CORTEX_M3">
+		<BuildCompiler name="CodeSourcery"/>
+		<BuildCompiler name="GNUARM"/>
+	</config>
+	<config BuildImpl="STM32F373" BuildArch="CORTEX_M4">
+		<BuildCompiler name="CodeSourcery"/>
+		<BuildCompiler name="GNUARM"/>
+	</config>
+	<config BuildImpl="STM32F405" BuildArch="CORTEX_M4">
+		<BuildCompiler name="CodeSourcery"/>
+		<BuildCompiler name="GNUARM"/>
+	</config>
+	<config BuildImpl="STM32F427" BuildArch="CORTEX_M4">
+		<BuildCompiler name="CodeSourcery"/>
+		<BuildCompiler name="GNUARM"/>
+	</config>
+	<config BuildImpl="STM32F745" BuildArch="CORTEX_M7">
+		<BuildCompiler name="GNUARM"/>
+	</config>
+	<config BuildImpl="x86_IXXAT" BuildArch="X86">
+		<BuildCompiler name="MinGW"/>
+	</config>
+	<config BuildImpl="x86_miCan" BuildArch="X86">
+		<BuildCompiler name="MinGW"/>
+	</config>
+	<config BuildImpl="x86_PCAN" BuildArch="X86">
+		<BuildCompiler name="MinGW"/>
+	</config>
+	<config BuildImpl="Linux_iMX53" BuildArch="Linux">
+		<BuildCompiler name="CodeSourcery"/>
+	</config>
+</cmake_configurations>

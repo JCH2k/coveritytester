@@ -1,0 +1,6 @@
+makeCMakeLists.py will create you a simple CMakeLists.txt to use it in sub directories
+open a shell and call:
+
+python makeCMakeLists.py [<list of directories>]
+
+if you do not specify a directory, the current directory is used

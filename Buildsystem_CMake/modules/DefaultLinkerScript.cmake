@@ -1,0 +1,42 @@
+# Try to find default linker script.
+# Set BUERKERT_LINKER_SCRIPT in your main CMakeLists.txt if your linker path differs from the ESA default.
+# Set BUERKERT_UNITTEST_LINKER_SCRIPT in your main CMakeLists.txt if you need a different linker file for UnitTest and your linker path differs from the ESA default.
+if(NOT WIN32 AND NOT ${BUERKERT_BUILD_ARCH} STREQUAL "Linux")
+	if("${BUERKERT_LINKER_SCRIPT}" STREQUAL "")
+		if(BUERKERT_USE_SDRAM)
+      set( BUERKERT_LINKER_SCRIPT ${BUERKERT_BUILD_IMPL}-flash-WithBootloader-SDRAM.ld )
+    else( BUERKERT_USE_SDRAM )
+      set( BUERKERT_LINKER_SCRIPT ${BUERKERT_BUILD_IMPL}-flash-WithBootloader.ld )
+    endif( BUERKERT_USE_SDRAM )
+
+    if( "${BUERKERT_COMPILER}" STREQUAL "GNUARM" )
+      set( BUERKERT_LINKER_SCRIPT GNU_${BUERKERT_LINKER_SCRIPT} ) # gnu prefix
+    endif( "${BUERKERT_COMPILER}" STREQUAL "GNUARM" )
+    set( BUERKERT_LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/Linker/${BUERKERT_LINKER_SCRIPT} ) # linker script path
+  endif( "${BUERKERT_LINKER_SCRIPT}" STREQUAL "" )
+
+	if("${BUERKERT_UNITTEST_LINKER_SCRIPT}" STREQUAL "")
+		if(BUERKERT_USE_SDRAM)
+      set( BUERKERT_UNITTEST_LINKER_SCRIPT ${BUERKERT_BUILD_IMPL}-flash-UnitTest-SDRAM.ld )
+    else( BUERKERT_USE_SDRAM )
+      set( BUERKERT_UNITTEST_LINKER_SCRIPT ${BUERKERT_BUILD_IMPL}-flash-UnitTest.ld )
+    endif( BUERKERT_USE_SDRAM )
+    if( "${BUERKERT_COMPILER}" STREQUAL "GNUARM" )
+      set( BUERKERT_UNITTEST_LINKER_SCRIPT GNU_${BUERKERT_UNITTEST_LINKER_SCRIPT} ) # gnu prefix
+    endif( "${BUERKERT_COMPILER}" STREQUAL "GNUARM" )
+    set( BUERKERT_UNITTEST_LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/Linker/${BUERKERT_UNITTEST_LINKER_SCRIPT} ) # linker script path
+
+		if(NOT EXISTS ${BUERKERT_UNITTEST_LINKER_SCRIPT})
+			message(STATUS "Default UnitTest linker script on '${BUERKERT_UNITTEST_LINKER_SCRIPT}' not found! The BUERKERT_LINKER_SCRIPT on '${BUERKERT_LINKER_SCRIPT}' will be used for unittest also.")
+			set(BUERKERT_UNITTEST_LINKER_SCRIPT ${BUERKERT_LINKER_SCRIPT})
+		endif()
+  endif( "${BUERKERT_UNITTEST_LINKER_SCRIPT}" STREQUAL "" )
+
+
+  if( NOT EXISTS ${BUERKERT_LINKER_SCRIPT} )
+    message( FATAL_ERROR "Linker script at '${BUERKERT_LINKER_SCRIPT}' not found! Check your 'BUERKERT_LINKER_SCRIPT' settings." )
+  endif( NOT EXISTS ${BUERKERT_LINKER_SCRIPT} )
+		if(NOT EXISTS ${BUERKERT_UNITTEST_LINKER_SCRIPT})
+    message( FATAL_ERROR "Linker script at '${BUERKERT_UNITTEST_LINKER_SCRIPT}' not found! Check your 'BUERKERT_UNITTEST_LINKER_SCRIPT' settings." )
+  endif( NOT EXISTS ${BUERKERT_UNITTEST_LINKER_SCRIPT} )
+endif()

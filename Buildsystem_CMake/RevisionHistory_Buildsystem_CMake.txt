@@ -1,0 +1,85 @@
+﻿/** \file
+
+\par	Version:	A.03
+	<HR>
+		\b	A.03.00.00		2019-06-05
+			- link Buildsystem_CMake.exe - version 2.1
+			- link tools and use them in the 'postbuildstep.bat'
+				- Buerkert_AES128
+				- stmCRC32
+				.
+			- generate encrypted binary file
+			- cleaned up post-build steps (removed too special arguments)
+			- add new generateBinaryName.py script
+			- python scripts python3 compatible
+			- added configuration for STM32F373
+			- added configuration for STM32F745
+			.
+	<HR>
+
+
+<HR>
+
+\par	Version:	A.02
+	<HR>
+		\b	A.02.02.00		2019-02-01
+			- delete old module gnu++11 -> programming language version is handled by toolchain files
+			- add gnu_arm toolchain files
+			- build.py now supports different cmake generators
+			- add prepareCmake.py as subscript of build.py
+			- TOOLCHAIN_PATH environment variable is mandatory now!
+			- link Buildsystem_CMake.exe - version 2.0
+			.
+	<HR>
+		\b	A.02.01.00
+			- remove special handling for linux impl define
+			- link Buildsystem_CMake.exe - version 1.5
+			.
+	<HR>
+		\b	A.02.00.00		2018-10-11
+			- use new Buildsystem_CMake.exe instead of the numerous batch files (improve maintainability)<br>
+			  the program will execute the same commands as the old batchfiles<br>
+			  (if you want you can copy the used batchfile from a previous version and maintain it yourself in the future)
+			- add experimental clang-tidy.cmake module
+			- using response file for includes to fix the too "large" make calls again
+			- do not automatically use include response file if exporting the compile command
+			- link Buildsystem_CMake.exe - version 1.3
+			.
+	<HR>
+
+
+<HR>
+
+\par	Version:	A.01
+	<HR>
+		\b	A.01.16.00		2018-08-10
+			- add error message when user tries to use coverage without testing, this is not possible atm
+			- new batch scripts with unit test as default configuration
+			- introduce  TEST_COMPILE_DEFINITIONS
+			- fix: UnitTests use BUERKERT_BUILD_ARCH instead of UNIX variable
+			- fix: jenkins problem with too "large" make calls
+					- let cmake really warn you if there could be a problem with the path length
+					- remove usage of variable without any purpose
+					.
+			.
+	<HR>
+		\b	A.01.15.00		2018-03-14
+			- filter only digits from SW_IDNO string in versionextract.py
+			- added package name to gtest test result, package name is BuildImpl_BuildType
+			- buildsystem batch file can now be called from everywhere and the current directory will stay the same
+			.
+	<HR>
+		\b	A.01.14.00		2018-02-22
+			- remove references to old eclipse project files
+			- added TESTED_CLASS cmake variable to specify which class of the active TARGET lib is tested
+			- FBSH test is for ESA only and needs a special unittest linker script
+			- add build definition needed for stdint.h on linux
+			- enable the use of fprintf macros like PRIu32 to use it as platform independent format specifier
+			.
+	<HR>
+
+<HR>
+\copyright � 2012 Buerkert Werke GmbH. All Rights Reserved.
+
+<HR>
+*/
